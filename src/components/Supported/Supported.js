@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Supported extends Component {
   state = {
@@ -12,7 +13,9 @@ class Supported extends Component {
   }
   
   handleButton = () => {
-
+    if (this.state.supported !== '') {
+      this.props.dispatch({ type: 'SET_SUPPORT', payload: this.state.supported });
+    }
     this.props.history.push('/comments');
   }
 
@@ -21,7 +24,7 @@ class Supported extends Component {
       <>
       <h2>How well are you being supported?</h2>
       <label>Supported?</label>
-      <input onChange={this.handleInput} value={this.state.supported}/>
+      <input onChange={this.handleInput} defaultValue={this.props.feedback.supported}/>
       <button onClick={this.handleButton}>Next</button>
 
       
@@ -36,4 +39,8 @@ class Supported extends Component {
   }
 }
 
-export default Supported;
+const mapReduxStateToProps = (reduxState) => {
+  return reduxState;
+}
+
+export default connect(mapReduxStateToProps)(Supported);

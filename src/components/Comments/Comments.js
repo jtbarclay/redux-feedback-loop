@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Comments extends Component {
   state = {
@@ -12,7 +13,9 @@ class Comments extends Component {
   }
   
   handleButton = () => {
-
+    if (this.state.comments !== '') {
+      this.props.dispatch({ type: 'SET_COMMENT', payload: this.state.comments });
+    }
     this.props.history.push('/review');
   }
 
@@ -21,7 +24,7 @@ class Comments extends Component {
       <>
       <h2>Any comments you want to leave?</h2>
       <label>Comments?</label>
-      <input onChange={this.handleInput} value={this.state.comments}/>
+      <input onChange={this.handleInput} defaultValue={this.props.feedback.comments}/>
       <button onClick={this.handleButton}>Next</button>
 
       
@@ -36,4 +39,8 @@ class Comments extends Component {
   }
 }
 
-export default Comments;
+const mapReduxStateToProps = (reduxState) => {
+  return reduxState;
+}
+
+export default connect(mapReduxStateToProps)(Comments);
