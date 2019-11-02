@@ -24,7 +24,7 @@ class Supported extends Component {
       <>
       <h2>How well are you being supported?</h2>
       <label>Supported?</label>
-      <input onChange={this.handleInput} defaultValue={this.props.feedback.supported}/>
+      <input onChange={this.handleInput} defaultValue={this.props.feedback.supported.comment}/>
       <button onClick={this.handleButton}>Next</button>
 
       

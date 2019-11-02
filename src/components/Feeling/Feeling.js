@@ -24,7 +24,7 @@ class Feeling extends Component {
       <>
         <h2>How are you feeling today?</h2>
         <label>Feeling?</label>
-        <input onChange={this.handleInput} defaultValue={this.props.feedback.feelings} />
+        <input onChange={this.handleInput} defaultValue={this.props.feedback.feelings.comment} />
         <button onClick={this.handleButton}>Next</button>
 
 
