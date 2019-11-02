@@ -3,6 +3,13 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 // import axios from 'axios';
 import './App.css';
 
+//import material-ui
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import { createMuiTheme } from '@material-ui/core/styles';
+import teal from '@material-ui/core/colors/teal';
+import cyan from '@material-ui/core/colors/cyan';
+import red from '@material-ui/core/colors/red'; 
+
 //import routes
 import Comments from '../Comments/Comments';
 import Feeling from '../Feeling/Feeling';
@@ -11,9 +18,20 @@ import Supported from '../Supported/Supported';
 import Understanding from '../Understanding/Understanding';
 import Home from '../Home/Home';
 
+const theme = createMuiTheme({
+  palette: {
+    primary: teal,
+    secondary: cyan,
+    error: red,
+    contrastThreshold: 3,
+    tonalOffset: 0.2,
+  }
+});
+
 class App extends Component {
   render() {
     return (
+      <MuiThemeProvider theme={theme}>
       <Router>
         <div className="App">
           <header className="App-header">
@@ -57,6 +75,7 @@ class App extends Component {
 
         </div>
       </Router>
+      </MuiThemeProvider>
     );
   }
 }
