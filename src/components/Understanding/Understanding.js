@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import RadioButtons from '../RadioButtons/RadioButtons';
 
 class Understanding extends Component {
   state = {
@@ -23,6 +24,13 @@ class Understanding extends Component {
     return (
       <>
         <h2>How well are you understanding the content?</h2>
+        <RadioButtons
+          checkedValue={this.props.feedback.understanding.value}
+          lowText='Which way is up?'
+          midText='meh'
+          highText='I could teach this'
+          reduxActionType='SET_UNDERSTANDING_VALUE'
+        />
         <label>Understanding?</label>
         <input onChange={this.handleInput} defaultValue={this.props.feedback.understanding.comment} />
         <button onClick={this.handleButton}>Next</button>

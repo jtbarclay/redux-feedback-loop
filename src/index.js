@@ -14,7 +14,7 @@ const feedback = (
       comment: '',
     },
     understanding: {
-      value: 5,
+      value: '',
       comment: '',
     },
     supported: {
@@ -50,6 +50,15 @@ const feedback = (
       },
     };
   }
+  if (action.type === 'SET_UNDERSTANDING_VALUE') {
+    return {
+      ...state,
+      understanding: {
+        ...state.understanding,
+        value: action.payload,
+      }
+    }
+  }
   if (action.type === 'SET_SUPPORT') {
     return {
       ...state,
@@ -58,6 +67,15 @@ const feedback = (
         comment: action.payload,
       },
     };
+  }
+  if (action.type === 'SET_SUPPORTED_VALUE') {
+    return {
+      ...state,
+      supported: {
+        ...state.supported,
+        value: action.payload,
+      }
+    }
   }
   if (action.type === 'SET_COMMENT') {
     return { ...state, comments: action.payload };

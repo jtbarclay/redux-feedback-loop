@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import RadioButtons from '../RadioButtons/RadioButtons';
 
 class Supported extends Component {
   state = {
@@ -23,6 +24,13 @@ class Supported extends Component {
     return (
       <>
       <h2>How well are you being supported?</h2>
+      <RadioButtons
+          checkedValue={this.props.feedback.supported.value}
+          lowText='Is this codecademy?'
+          midText='meh'
+          highText='Prime is the best!'
+          reduxActionType='SET_SUPPORTED_VALUE'
+        />
       <label>Supported?</label>
       <input onChange={this.handleInput} defaultValue={this.props.feedback.supported.comment}/>
       <button onClick={this.handleButton}>Next</button>

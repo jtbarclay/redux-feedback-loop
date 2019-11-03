@@ -5,7 +5,6 @@ import RadioButtons from '../RadioButtons/RadioButtons';
 class Feeling extends Component {
   state = {
     feeling: '',
-    value: '',
   }
 
   handleInput = (event) => {
