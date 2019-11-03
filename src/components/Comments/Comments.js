@@ -11,29 +11,42 @@ class Comments extends Component {
       comments: event.target.value,
     })
   }
-  
+
   handleButton = () => {
     if (this.state.comments !== '') {
       this.props.dispatch({ type: 'SET_COMMENT', payload: this.state.comments });
     }
-    this.props.history.push('/review');
+
+    //input validation
+    if (this.props.feedback.feelings.value === '') {
+      alert('Plase rate how well you are feeling today');
+      this.props.history.push('/feeling');
+    } else if (this.props.feedback.understanding.value === '') {
+      alert('Plase rate how well you are understanding the material today');
+      this.props.history.push('/understanding');
+    } else if (this.props.feedback.supported.value === '') {
+      alert('Plase rate how supported you are feeling today');
+      this.props.history.push('/supported');
+    } else {
+      this.props.history.push('/review');
+    }
   }
 
   render() {
     return (
       <>
-      <h2>Any comments you want to leave?</h2>
-      <label>Comments?</label>
-      <input onChange={this.handleInput} defaultValue={this.props.feedback.comments}/>
-      <button onClick={this.handleButton}>Next</button>
+        <h2>Any comments you want to leave?</h2>
+        <label>Comments?</label>
+        <input onChange={this.handleInput} defaultValue={this.props.feedback.comments} />
+        <button onClick={this.handleButton}>Next</button>
 
-      
-      <br/>
-      <br/>
-      <pre>State:{JSON.stringify(this.state, null, 2)}</pre>
-      <br/>
-      <br/>
-      <pre>Props:{JSON.stringify(this.props, null, 2)}</pre>
+
+        <br />
+        <br />
+        <pre>State:{JSON.stringify(this.state, null, 2)}</pre>
+        <br />
+        <br />
+        <pre>Props:{JSON.stringify(this.props, null, 2)}</pre>
       </>
     );
   }

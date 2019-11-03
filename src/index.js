@@ -18,7 +18,7 @@ const feedback = (
       comment: '',
     },
     supported: {
-      value: 5,
+      value: '',
       comment: '',
     },
     comments: '',
