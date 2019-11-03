@@ -12,13 +12,19 @@ class Comments extends Component {
     })
   }
 
-  handleButton = () => {
+  handleButton = (route) => {
     if (this.state.comments !== '') {
       this.props.dispatch({ type: 'SET_COMMENT', payload: this.state.comments });
     }
 
+    if (route == 'back') {
+      this.props.history.push('/supported');
+    }
+
     //input validation
-    if (this.props.feedback.feelings.value === '') {
+    if (route == 'back') {
+      this.props.history.push('/supported');
+    } else if (this.props.feedback.feelings.value === '') {
       alert('Plase rate how well you are feeling today');
       this.props.history.push('/feeling');
     } else if (this.props.feedback.understanding.value === '') {
@@ -27,7 +33,7 @@ class Comments extends Component {
     } else if (this.props.feedback.supported.value === '') {
       alert('Plase rate how supported you are feeling today');
       this.props.history.push('/supported');
-    } else {
+    } else if (route == 'next') {
       this.props.history.push('/review');
     }
   }
@@ -38,7 +44,8 @@ class Comments extends Component {
         <h2>Any comments you want to leave?</h2>
         <label>Comments?</label>
         <input onChange={this.handleInput} defaultValue={this.props.feedback.comments} />
-        <button onClick={this.handleButton}>Next</button>
+        <button onClick={() => this.handleButton('back')}>Back</button>
+        <button onClick={() => this.handleButton('next')}>Next</button>
 
 
         <br />

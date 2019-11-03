@@ -13,11 +13,15 @@ class Understanding extends Component {
     })
   }
 
-  handleButton = () => {
+  handleButton = (route) => {
     if (this.state.understanding !== '') {
       this.props.dispatch({ type: 'SET_UNDERSTANDING', payload: this.state.understanding });
     }
-    this.props.history.push('/supported');
+    if (route == 'next') {
+      this.props.history.push('/supported');
+    } else {
+      this.props.history.push('/feeling');
+    }
   }
 
   render() {
@@ -33,8 +37,8 @@ class Understanding extends Component {
         />
         <label>Understanding?</label>
         <input onChange={this.handleInput} defaultValue={this.props.feedback.understanding.comment} />
-        <button onClick={this.handleButton}>Next</button>
-
+        <button onClick={() => this.handleButton('back')}>Back</button>
+        <button onClick={() => this.handleButton('next')}>Next</button>
 
         <br />
         <br />
