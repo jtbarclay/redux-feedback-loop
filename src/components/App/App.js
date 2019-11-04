@@ -4,13 +4,12 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
 
 //import material-ui
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import teal from '@material-ui/core/colors/teal';
 import cyan from '@material-ui/core/colors/cyan';
 import red from '@material-ui/core/colors/red';
 import { Card, CardContent } from '@material-ui/core/';
-import { unstable_Box as Box } from '@material-ui/core/Box';
+import { Box, Container } from '@material-ui/core/';
 
 //import routes
 import Comments from '../Comments/Comments';
@@ -35,13 +34,18 @@ const theme = createMuiTheme({
         margin: "20px",
       },
     },
+    MuiCard: {
+      root: {
+        minWidth: 600,
+      }
+    }
   },
 });
 
 class App extends Component {
   render() {
     return (
-      <MuiThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
         <Router>
           <div className="App">
             <header className="App-header">
@@ -65,6 +69,9 @@ class App extends Component {
             >
               <Card>
                 <CardContent>
+                {/* <Container
+                  minWidth='sm'
+                > */}
                   <Route
                     path="/"
                     component={Feeling}
@@ -98,12 +105,13 @@ class App extends Component {
                     path="/admin"
                     component={Admin}
                   />
+                  {/* </Container> */}
                 </CardContent>
               </Card>
             </Box>
           </div>
         </Router>
-      </MuiThemeProvider>
+      </ThemeProvider>
     );
   }
 }

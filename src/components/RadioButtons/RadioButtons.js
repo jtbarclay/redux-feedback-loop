@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Radio from '@material-ui/core/Radio';
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
-import { unstable_Box as Box } from '@material-ui/core/Box';
+import { Box } from '@material-ui/core/';
 
 export class RadioButtons extends Component {
 
