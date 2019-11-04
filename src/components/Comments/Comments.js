@@ -17,12 +17,8 @@ class Comments extends Component {
       this.props.dispatch({ type: 'SET_COMMENT', payload: this.state.comments });
     }
 
-    if (route == 'back') {
-      this.props.history.push('/supported');
-    }
-
     //input validation
-    if (route == 'back') {
+    if (route === 'back') {
       this.props.history.push('/supported');
     } else if (this.props.feedback.feelings.value === '') {
       alert('Plase rate how well you are feeling today');
@@ -33,7 +29,7 @@ class Comments extends Component {
     } else if (this.props.feedback.supported.value === '') {
       alert('Plase rate how supported you are feeling today');
       this.props.history.push('/supported');
-    } else if (route == 'next') {
+    } else if (route === 'next') {
       this.props.history.push('/review');
     }
   }

@@ -18,7 +18,7 @@ class Supported extends Component {
       this.props.dispatch({ type: 'SET_SUPPORT', payload: this.state.supported });
     }
 
-    if (route == 'next') {
+    if (route === 'next') {
       this.props.history.push('/comments');
     } else {
       this.props.history.push('/understanding');

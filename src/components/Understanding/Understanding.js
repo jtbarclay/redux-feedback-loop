@@ -17,7 +17,7 @@ class Understanding extends Component {
     if (this.state.understanding !== '') {
       this.props.dispatch({ type: 'SET_UNDERSTANDING', payload: this.state.understanding });
     }
-    if (route == 'next') {
+    if (route === 'next') {
       this.props.history.push('/supported');
     } else {
       this.props.history.push('/feeling');

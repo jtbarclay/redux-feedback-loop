@@ -22,13 +22,18 @@ export class RadioButtons extends Component {
 
         const buttons = [];
 
-        for(let i = 0; i < 10; i++){
+        for (let i = 0; i < 10; i++) {
             // if(i === 0){
             //     buttons.push(<span>{this.props.lowText}</span>)
             // }
             // if(i === 5){
             //     buttons.push(<span>{this.props.midText}</span>)
             // }
+
+            // typescript would be helpful here
+            // console.log('in button loops checkedValue: ', this.props.checkedValue);
+            // console.log('in button loops (i +1): ', (i +1));
+
             buttons.push(
                 <Radio
                     key={i}
@@ -63,6 +68,6 @@ export class RadioButtons extends Component {
 
 const mapReduxStateToProps = (reduxState) => {
     return reduxState;
-  }
+}
 
 export default connect(mapReduxStateToProps)(RadioButtons);
