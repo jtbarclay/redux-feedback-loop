@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import RadioButtons from '../RadioButtons/RadioButtons';
+import TextField from '@material-ui/core/TextField';
 
 class Supported extends Component {
   state = {
@@ -36,17 +37,26 @@ class Supported extends Component {
           highText='Prime is the best!'
           reduxActionType='SET_SUPPORTED_VALUE'
         />
-        <label>Supported?</label>
-        <input onChange={this.handleInput} defaultValue={this.props.feedback.supported.comment} />
+        {/* <input onChange={this.handleInput} defaultValue={this.props.feedback.supported.comment} /> */}
+        <TextField
+          label="Optional Additional Comments "
+          multiline
+          rows="4"
+          onChange={this.handleInput}
+          defaultValue={this.props.feedback.supported.comment}
+          margin="normal"
+          variant="outlined"
+          fullWidth
+        />
         <button onClick={() => this.handleButton('back')}>Back</button>
         <button onClick={() => this.handleButton('next')}>Next</button>
 
-        <br />
+        {/* <br />
         <br />
         <pre>State:{JSON.stringify(this.state, null, 2)}</pre>
         <br />
         <br />
-        <pre>Props:{JSON.stringify(this.props, null, 2)}</pre>
+        <pre>Props:{JSON.stringify(this.props, null, 2)}</pre> */}
       </>
     );
   }

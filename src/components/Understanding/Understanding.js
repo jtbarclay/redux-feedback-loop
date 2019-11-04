@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import RadioButtons from '../RadioButtons/RadioButtons';
+import TextField from '@material-ui/core/TextField';
 
 class Understanding extends Component {
   state = {
@@ -35,17 +36,26 @@ class Understanding extends Component {
           highText='I could teach this'
           reduxActionType='SET_UNDERSTANDING_VALUE'
         />
-        <label>Understanding?</label>
-        <input onChange={this.handleInput} defaultValue={this.props.feedback.understanding.comment} />
+        {/* <input onChange={this.handleInput} defaultValue={this.props.feedback.understanding.comment} /> */}
+        <TextField
+          label="Optional Additional Comments "
+          multiline
+          rows="4"
+          onChange={this.handleInput}
+          defaultValue={this.props.feedback.understanding.comment}
+          margin="normal"
+          variant="outlined"
+          fullWidth
+        />
         <button onClick={() => this.handleButton('back')}>Back</button>
         <button onClick={() => this.handleButton('next')}>Next</button>
 
-        <br />
+        {/* <br />
         <br />
         <pre>State:{JSON.stringify(this.state, null, 2)}</pre>
         <br />
         <br />
-        <pre>Props:{JSON.stringify(this.props, null, 2)}</pre>
+        <pre>Props:{JSON.stringify(this.props, null, 2)}</pre> */}
       </>
     );
   }

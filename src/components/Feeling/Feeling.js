@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import RadioButtons from '../RadioButtons/RadioButtons';
+import TextField from '@material-ui/core/TextField';
 
 class Feeling extends Component {
   state = {
@@ -31,17 +32,26 @@ class Feeling extends Component {
           highText='Could be worse'
           reduxActionType='SET_FEELINGS_VALUE'
         />
-        <label>Feeling?</label>
-        <input onChange={this.handleInput} defaultValue={this.props.feedback.feelings.comment} />
+        {/* <input onChange={this.handleInput} defaultValue={this.props.feedback.feelings.comment} /> */}
+        <TextField
+          label="Optional Additional Comments "
+          multiline
+          rows="4"
+          onChange={this.handleInput}
+          defaultValue={this.props.feedback.feelings.comment}
+          margin="normal"
+          variant="outlined"
+          fullWidth
+        />
         <button onClick={this.handleButton}>Next</button>
 
 
-        <br />
+        {/* <br />
         <br />
         <pre>State:{JSON.stringify(this.state, null, 2)}</pre>
         <br />
         <br />
-        <pre>Props:{JSON.stringify(this.props, null, 2)}</pre>
+        <pre>Props:{JSON.stringify(this.props, null, 2)}</pre> */}
       </>
     );
   }

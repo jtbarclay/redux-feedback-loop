@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import TextField from '@material-ui/core/TextField';
 
 class Comments extends Component {
   state = {
@@ -38,8 +39,17 @@ class Comments extends Component {
     return (
       <>
         <h2>Any comments you want to leave?</h2>
-        <label>Comments?</label>
-        <input onChange={this.handleInput} defaultValue={this.props.feedback.comments} />
+        {/* <input onChange={this.handleInput} defaultValue={this.props.feedback.comments} /> */}
+        <TextField
+          label="Optional Other Comments"
+          multiline
+          rows="4"
+          onChange={this.handleInput}
+          defaultValue={this.props.feedback.comments}
+          margin="normal"
+          variant="outlined"
+          fullWidth
+        />
         <button onClick={() => this.handleButton('back')}>Back</button>
         <button onClick={() => this.handleButton('next')}>Next</button>
 
