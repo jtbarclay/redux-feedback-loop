@@ -43,7 +43,7 @@ class Feeling extends Component {
           variant="outlined"
           fullWidth
         />
-        <Button variant="contained" color="primary" onClick={this.handleButton}>Next</Button>
+        <Button variant="contained" color="primary" onClick={this.handleButton} p={4}>Next</Button>
 
 
         {/* <br />

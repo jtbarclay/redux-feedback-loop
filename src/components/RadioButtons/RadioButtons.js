@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Radio from '@material-ui/core/Radio';
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
+import { unstable_Box as Box } from '@material-ui/core/Box';
 
 export class RadioButtons extends Component {
 
@@ -22,6 +23,17 @@ export class RadioButtons extends Component {
 
         const buttons = [];
 
+        buttons.push(
+            <Box
+                display="flex"
+                justifyContent="space-between"
+            >
+                <span id='lowText'>{this.props.lowText}</span>
+                <span id='midText'>{this.props.midText}</span>
+                <span id='highText'>{this.props.highText}</span>
+            </Box>
+        )
+        
         for (let i = 0; i < 10; i++) {
             // if(i === 0){
             //     buttons.push(<span>{this.props.lowText}</span>)
@@ -49,13 +61,6 @@ export class RadioButtons extends Component {
             //     buttons.push(<span>{this.props.highText}</span>)
             // }
         }
-        buttons.push(
-            <div>
-                <span id='lowText'>{this.props.lowText}</span>
-                <span id='midText'>{this.props.midText}</span>
-                <span id='highText'>{this.props.highText}</span>
-            </div>
-        )
 
         return (
             <div>
