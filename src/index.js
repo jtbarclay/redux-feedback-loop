@@ -81,6 +81,24 @@ const feedback = (
     return { ...state, comments: action.payload };
   }
 
+  if (action.type === 'RESET_FEEDBACK') {
+    return {
+      feelings: {
+        value: '',
+        comment: '',
+      },
+      understanding: {
+        value: '',
+        comment: '',
+      },
+      supported: {
+        value: '',
+        comment: '',
+      },
+      comments: '',
+    }
+  }
+
   return state;
 }
 
