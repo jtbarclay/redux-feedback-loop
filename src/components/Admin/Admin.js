@@ -8,20 +8,31 @@ export class Admin extends Component {
         feedback: [],
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.getFeedback()
     }
 
     getFeedback = () => {
         axios.get('/api/feedback')
             .then((response) => {
-                console.log('/api/feedback response', response);
+                console.log('/api/feedback GET response', response);
                 this.setState({
                     feedback: response.data,
                 })
             })
             .catch((error) => {
-                console.log('/api/feedback error', error);
+                console.log('/api/feedback GET error', error);
+            })
+    }
+
+    handleDelete = (id) => {
+        axios.delete(`/api/feedback/${id}`)
+            .then((response) => {
+                console.log('/api/feedback DELETE response', response);
+                this.getFeedback();
+            })
+            .catch((error) => {
+                console.log('/api/feedback DELETE error', error);
             })
     }
 
@@ -51,7 +62,7 @@ export class Admin extends Component {
                                 <td>{row.support}</td>
                                 <td>{row.support_comment}</td>
                                 <td>{row.comments}</td>
-                                <td><button>Delete</button></td>
+                                <td><button onClick={() => this.handleDelete(row.id)}>Delete</button></td>
                             </tr>
                         ))}
                     </tbody>
