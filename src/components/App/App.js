@@ -19,6 +19,7 @@ import Review from '../Review/Review';
 import Supported from '../Supported/Supported';
 import Understanding from '../Understanding/Understanding';
 import Admin from '../Admin/Admin';
+import Success from '../Success/Success';
 
 const theme = createMuiTheme({
   palette: {
@@ -58,7 +59,7 @@ class App extends Component {
           <br /> */}
 
             <Box
-              width="75%"
+              width="50%"
               mx="auto"
               m={4}
             >
@@ -88,6 +89,10 @@ class App extends Component {
                   <Route
                     path="/review"
                     component={Review}
+                  />
+                  <Route
+                    path="/success"
+                    component={Success}
                   />
                   <Route
                     path="/admin"
