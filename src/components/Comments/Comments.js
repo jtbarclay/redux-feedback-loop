@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import TextField from '@material-ui/core/TextField';
+import { TextField, Button } from '@material-ui/core/';
 
 class Comments extends Component {
   state = {
@@ -50,16 +50,16 @@ class Comments extends Component {
           variant="outlined"
           fullWidth
         />
-        <button onClick={() => this.handleButton('back')}>Back</button>
-        <button onClick={() => this.handleButton('next')}>Next</button>
+        <Button variant="contained" color="primary" onClick={() => this.handleButton('back')}>Back</Button>
+        <Button variant="contained" color="primary" onClick={() => this.handleButton('next')}>Next</Button>
 
 
-        <br />
+        {/* <br />
         <br />
         <pre>State:{JSON.stringify(this.state, null, 2)}</pre>
         <br />
         <br />
-        <pre>Props:{JSON.stringify(this.props, null, 2)}</pre>
+        <pre>Props:{JSON.stringify(this.props, null, 2)}</pre> */}
       </>
     );
   }

@@ -16,7 +16,6 @@ import Feeling from '../Feeling/Feeling';
 import Review from '../Review/Review';
 import Supported from '../Supported/Supported';
 import Understanding from '../Understanding/Understanding';
-import Home from '../Home/Home';
 import Admin from '../Admin/Admin';
 
 const theme = createMuiTheme({
@@ -41,16 +40,16 @@ class App extends Component {
           </header>
 
           {/* Temp nav links */}
-          <Link to='/'>Home</Link>
+          {/* <Link to='/'>Home</Link>
           <Link to='/feeling'>Feeling</Link>
           <Link to='/understanding'>Understanding</Link>
           <Link to='/supported'>Supported</Link>
           <Link to='/comments'>Comments</Link>
           <Link to='/review'>Review</Link>
-          <br />
+          <br /> */}
           <Route
             path="/"
-            component={Home}
+            component={Feeling}
             exact
           />
           <Route

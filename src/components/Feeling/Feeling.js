@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import RadioButtons from '../RadioButtons/RadioButtons';
-import TextField from '@material-ui/core/TextField';
+import { TextField, Button } from '@material-ui/core/';
 
 class Feeling extends Component {
   state = {
@@ -43,7 +43,7 @@ class Feeling extends Component {
           variant="outlined"
           fullWidth
         />
-        <button onClick={this.handleButton}>Next</button>
+        <Button variant="contained" color="primary" onClick={this.handleButton}>Next</Button>
 
 
         {/* <br />
