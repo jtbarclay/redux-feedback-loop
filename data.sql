@@ -6,8 +6,11 @@ CREATE DATABASE "prime_feedback";
 CREATE TABLE "feedback" (
   "id" serial primary key,
   "feeling" INT not null,
+  "feeling_comment" text,
   "understanding" INT not null,
+  "understanding_comment" text,
   "support" INT not null,
+  "support_comment" text,
   "comments" text,
   "flagged" boolean default false,
   "date" date not null default CURRENT_DATE
